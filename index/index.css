@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --dark: #111111;
+  --medium-dark: #1e1e1e;
+  --medium: #333333;
+  --medium-light: #707070;
+  --light: #f5f5f5;
+}
+
+body {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--dark);
+  color: var(--light);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+button {
+  background-color: transparent;
+  color: var(--light);
+  border: 1px solid  var(--medium);
+  padding: 12px 25px;
+  border-radius: 2px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--medium);
+  transform: translateY(-2px); 
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#choicesContainer {
+  display: flex;
+  gap: 10px;
+}
+
+#choices {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#scoreContainer {
+  position: relative; 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  background-color: var(--medium-dark);
+  border: 1px solid var(--medium);
+  border-radius: 4px;
+  font-size: 42px;
+  margin-bottom: 10px;
+  padding: 15px 0;
+}
+
+#container{
+  display: flex; 
+  align-items: center;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+#humanChoice, 
+#computerChoice, 
+#humanScore, 
+#computerScore  {
+  min-height: 20px; 
+  min-width: 100px; 
+  text-align: center; 
+  margin: 0 20px; 
+}
+
+#playersText {
+  position: absolute;
+  font-size: 12px;
+  background-color: coral;
+  padding: 0 8px; 
+}
+
+#playersText:first-of-type {
+  left:-20px;
+}
+
+#playersText:last-of-type {
+  right:-25px;
+}
+
