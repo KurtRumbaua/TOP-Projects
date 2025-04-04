@@ -31,13 +31,14 @@ The game is a race to 5 points against the computer:
 - Anti-Tie Bias: Reduced probability of frustrating ties
 
 ## 💻 Technologies Used
+```javascript
 const technologies = {
   frontend: ["HTML5", "CSS3", "JavaScript (ES6+)"],
   animations: ["CSS Transitions", "Canvas API", "JavaScript Timers"],
   audio: ["Web Audio API"],
   design: ["Responsive Design", "Dark Theme"]
 };
-
+```
 
 ## 🎯Skills Demonstrated
 
@@ -60,8 +61,10 @@ const technologies = {
 
 ## 🚀 Future Improvements
 
-- <input disabled="" type="checkbox"> Add leaderboard with localStorage
-- <input disabled="" type="checkbox"> Implement Rock-Paper-Scissors-Lizard-Spock mode
-- <input disabled="" type="checkbox"> Add difficulty levels with smarter computer AI
-- <input disabled="" type="checkbox"> Include customizable themes
-- <input disabled="" type="checkbox"> Add support for multiplayer
+```markdown
+- [ ] Add leaderboard with localStorage
+- [ ] Implement Rock-Paper-Scissors-Lizard-Spock mode
+- [ ] Add difficulty levels with smarter computer AI
+- [ ] Include customizable themes
+- [ ] Add support for multiplayer
+```
