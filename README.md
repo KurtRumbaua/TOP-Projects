@@ -1,4 +1,5 @@
 # Rock-Paper-Scissors Game
+![Game Demo](images/demo.gif)
 
 A simple, interactive implementation of the classic Rock-Paper-Scissors game built with JavaScript, HTML, and CSS.
 
@@ -62,9 +63,9 @@ const technologies = {
 ## 🚀 Future Improvements
 
 ```markdown
-- [ ] Add leaderboard with localStorage
-- [ ] Implement Rock-Paper-Scissors-Lizard-Spock mode
-- [ ] Add difficulty levels with smarter computer AI
-- [ ] Include customizable themes
-- [ ] Add support for multiplayer
+[ ] Add leaderboard with localStorage
+[ ] Implement Rock-Paper-Scissors-Lizard-Spock mode
+[ ] Add difficulty levels with smarter computer AI
+[ ] Include customizable themes
+[ ] Add support for multiplayer
 ```
