@@ -3,27 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <div id="container">
-      <p id="humanChoice"></p>
-      <div id="scoreContainer">
-        <p id="playersText">You</p>
-        <p id="humanScore">0</p>
-        <p>:</p>
-        <p id="computerScore">0</p>
-        <p id="playersText">Comp</p>
+    <!-- Start Screen (Initially visible) -->
+    <div id="startScreen">
+      <div class="typing-container">
+        <div class="typing-text" id="typing-text"></div>
       </div>
-      <p id="computerChoice"></p>
+      <button id="start-button">Start Game</button>
     </div>
+    
+    <!-- Game screen (Initially hidden) -->
+    <div id="gameScreen" style="display: none;">
+      <div id="container">
+        <div class="player-section">
+          <p id="humanChoice"></p>
+        </div>
+        
+        <div id="scoreContainer">
+          <p class="playerText" id="humanPlayerText">You</p>
+          <p id="humanScore">0</p>
+          <p>:</p>
+          <p id="computerScore">0</p>
+          <p class="playerText" id="computerPlayerText">Bot</p>
+        </div>
+        
+        <div class="player-section">
+          <p id="computerChoice"></p>
+        </div>
+      </div>
 
-    <div id="choicesContainer">
-      <button id="choices">Rock</button>
-      <button id="choices">Paper</button>
-      <button id="choices">Scissors</button>
+      <div id="choicesContainer">
+        <button class="choices">Rock</button>
+        <button class="choices">Paper</button>
+        <button class="choices">Scissors</button>
+      </div>
     </div>
+    
+    <!-- End screen (initially hidden) -->
+    <div id="endScreen" style="display: none;">
+      <div id="result-container">
+        <h1 id="result-text"></h1>
+        <p id="score-text"></p>
+        <button id="play-again" style="display: none;">Play Again</button>
+      </div>
+      <canvas id="confetti-canvas"></canvas>
+    </div>
+    
     <script src="index.js"></script>
   </body>
 </html>

@@ -9,37 +9,32 @@
 }
 
 body {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
+  margin: 0;
+  padding: 0;
   background-color: var(--dark);
   color: var(--light);
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  margin: 0;
-  padding: 0;
   height: 100vh;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 button {
   background-color: transparent;
   color: var(--light);
-  border: 1px solid  var(--medium);
+  border: 1px solid var(--medium);
   padding: 12px 25px;
   border-radius: 2px;
-
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   letter-spacing: 1px;
-
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 button:hover {
   background-color: var(--medium);
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
 }
 
 button:active {
@@ -49,9 +44,15 @@ button:active {
 #choicesContainer {
   display: flex;
   gap: 10px;
+  margin: 0 auto; /* Center horizontally */
+  justify-content: center; /* Center the buttons within container */
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center bottom;
+  position: relative;
+  max-height: 200px;
 }
 
-#choices {
+.choices {
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -60,8 +61,12 @@ button:active {
   align-items: center;
 }
 
+.choices:hover{
+  background-color: var(--medium-dark);
+}
+
 #scoreContainer {
-  position: relative; 
+  position: relative;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -72,37 +77,371 @@ button:active {
   font-size: 42px;
   margin-bottom: 10px;
   padding: 15px 0;
+  /* Improve transition with cubic-bezier */
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-#container{
-  display: flex; 
+#container {
+  display: flex;
   align-items: center;
   width: 100vw;
   justify-content: space-around;
+  /* Use the same smooth transition */
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-#humanChoice, 
-#computerChoice, 
-#humanScore, 
-#computerScore  {
-  min-height: 20px; 
-  min-width: 100px; 
-  text-align: center; 
-  margin: 0 20px; 
+#humanChoice,
+#computerChoice {
+  min-height: 60px;
+  min-width: 150px;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  margin: 0 20px;
+  font-size: 48px;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#playersText {
+#humanScore,
+#computerScore {
+  min-height: 20px;
+  min-width: 100px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.playerText {
   position: absolute;
-  font-size: 12px;
-  background-color: coral;
-  padding: 0 8px; 
+  font-size: 18px;
+  background-color: coral; /* Changed from coral to match your theme */
+  padding: 0 8px;
 }
 
-#playersText:first-of-type {
-  left:-20px;
+.playerText:first-of-type {
+  left: -20px;
 }
 
-#playersText:last-of-type {
-  right:-25px;
+.playerText:last-of-type {
+  right: -20px;
+}
+
+/* Improved fade-out for smoother transition */
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  max-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  transform: scale(0.7);
+  position: absolute; /* This is key - removes from flow */
+  visibility: hidden; /* Hide it completely */
+  transition: 
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    margin 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    padding 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s 0.5s; /* Delay visibility change until fade completes */
+}
+
+/* Animation styles for the choice displays */
+.rolling {
+  animation: shake 0.5s infinite;
+  font-size: 48px;
+  opacity: 0.7;
+}
+
+.reveal {
+  animation: reveal 0.5s forwards;
+  font-size: 48px;
+}
+
+/* Shake animation for rolling effect */
+@keyframes shake {
+  0% { transform: translateY(-2px) rotate(-5deg); }
+  25% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(2px) rotate(5deg); }
+  75% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-2px) rotate(-5deg); }
+}
+
+/* Reveal animation */
+@keyframes reveal {
+  0% { 
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Separate container for human and computer sections */
+.player-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+  transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Add this new class that will be added when choices fade out */
+.game-active {
+  /* Make container move to center when active */
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* End screen styles */
+#endScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark);
+  z-index: 100;
+  transition: opacity 0.5s ease;
+}
+
+#result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+}
+
+#result-text {
+  font-size: 72px;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fade-in 0.8s ease forwards;
+}
+
+#score-text {
+  font-size: 24px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fade-in 0.8s ease forwards 0.3s;
+}
+
+/* Clear styling for Play Again button */
+#play-again {
+  padding: 15px 40px;
+  font-size: 18px;
+  background-color: transparent;
+  color: #ffffff; /* White text */
+  border: 2px solid #ffffff; /* White border */
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+#play-again:hover {
+  background-color: var(--medium-dark);
+  transform: translateY(-3px);
+}
+
+/* Play Again visible state */
+#play-again.visible {
+  display: inline-block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Play Again hidden state */
+#play-again.hidden {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.hidden {
+  opacity: 0 !important;
+  transform: translateY(10px) !important;
+  display: none !important;
+  visibility: hidden !important;
+}
+
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Animation for text fade-in */
+@keyframes fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Colors for different outcomes */
+.win {
+  color: #4ade80;
+  text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+}
+
+.lose {
+  color: #f87171;
+  text-shadow: 0 0 10px rgba(248, 113, 113, 0.5);
+}
+
+/* Transition for game screen */
+#gameScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly; /* Space elements evenly */
+  width: 100%;
+  transition: all 0.5s ease; /* Change from just opacity to all properties */
+  height: 100vh; /* Ensure it takes full height */
+  position: absolute; /* Position it absolutely */
+  top: 0;
+  left: 0;
+}
+
+/* Fix for start screen positioning */
+#startScreen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: var(--dark); /* Use your dark variable */
+}
+
+.typing-container {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+#typing-text {
+  font-size: 48px;
+  font-weight: 300;
+  position: relative;
+  color: var(--light); /* Use your light variable */
+  letter-spacing: 2px;
+  margin: 0 auto; /* Center horizontally */
+  display: inline-block;
+}
+
+/* Fix blinking cursor animation */
+#typing-text::after {
+  content: "|";
+  position: absolute;
+  right: -10px;
+  animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Correct fix for start button with animation */
+#start-button {
+  padding: 15px 40px;
+  font-size: 18px;
+  background-color: transparent;
+  color: var(--light);
+  border: 1px solid var(--light);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0; /* Start hidden */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin: 0 auto;
+  animation: fadeIn 1s 4s forwards; /* Animation starts after 4s and makes it visible */
+}
+
+#start-button:hover {
+  background-color: var(--medium-dark);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Add this animation for the Play Again button */
+@keyframes buttonAppear {
+  0% { 
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.02);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* More specific styling for Play Again button */
+#endScreen #result-container #play-again {
+  padding: 15px 40px;
+  font-size: 18px;
+  background-color: transparent;
+  color: var(--light); /* Use variable instead of hardcoded color */
+  border: 2px solid var(--light); /* Use variable for consistency */
+  border-radius: 20px !important; /* Force your preferred radius with !important */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  
+  /* Add the animation */
+  animation: buttonAppear 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  
+  /* Ensure it starts invisible */
+  opacity: 0;
+  transform: translateY(15px) scale(0.95);
+}
+
+#endScreen #result-container #play-again:hover {
+  background-color: var(--medium-dark) !important; /* Force your preference */
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+#endScreen #result-container #play-again:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
