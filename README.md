@@ -1,50 +1,67 @@
 # Rock-Paper-Scissors Game
 
-A simple command-line implementation of the classic Rock-Paper-Scissors game built with JavaScript.
+A simple, interactive implementation of the classic Rock-Paper-Scissors game built with JavaScript, HTML, and CSS.
 
-## Project Overview
+## 🎮 Project Overview
 
 This project is part of [The Odin Project](https://www.theodinproject.com/) curriculum, which provides a free, open-source full-stack web development course. This implementation focuses on core JavaScript concepts and logic without any fancy UI (yet).
 
-## How It Works
+## 🎲 How It Works
 
-The game consists of 5 rounds of Rock-Paper-Scissors against the computer:
+The game is a race to 5 points against the computer:
 
-1. The player is prompted to choose Rock, Paper, or Scissors (using numbers 1-3)
-2. The computer randomly selects its choice
-3. The winner of each round is determined using classic Rock-Paper-Scissors rules:
-   - Rock beats Scissors
-   - Paper beats Rock
-   - Scissors beats Paper
-4. After all 5 rounds, the final winner is announced along with the score breakdown
+1. Players click on either Rock, Paper, or Scissors buttons
+2. The selections animate with a "rolling" effect
+3. The computer's choice is slightly biased to reduce ties (15% chance of tie vs 33% in purely random)
+4. The result of each round is determined using classic Rock-Paper-Scissors rules:
+   - 🪨 Rock beats ✂️ Scissors
+   - 📄 Paper beats 🪨 Rock
+   - ✂️ Scissors beats 📄 Paper
+5. The first player to reach 5 points wins, triggering a victory/defeat screen
+6. The game features a confetti celebration for wins 🎉
 
-## Key Features
+## ✨ Key Features
 
-- Random computer choice generation
-- User-friendly prompts for player input
-- Score tracking and final results display
-- Implementation of game logic using JavaScript objects for winning conditions
-- Console feedback after each round
+- Sleek UI: Modern dark-themed interface with smooth transitions
+- Animations: Engaging animations for selections and results
+- Sound Effects: Console-style sounds for hover, click, win, and lose
+- Confetti: Celebrate victories with a colorful confetti display
+- Typing Animation: Engaging start screen with animated text
+- Score Tracking: Visual feedback after each round
+- Anti-Tie Bias: Reduced probability of frustrating ties
 
-## Skills Demonstrated
+## 💻 Technologies Used
+const technologies = {
+  frontend: ["HTML5", "CSS3", "JavaScript (ES6+)"],
+  animations: ["CSS Transitions", "Canvas API", "JavaScript Timers"],
+  audio: ["Web Audio API"],
+  design: ["Responsive Design", "Dark Theme"]
+};
 
-- JavaScript fundamentals
-- Functions and scope
-- Conditional logic
-- Arrays and objects
-- Template literals
-- Basic user input handling
 
-## How to Run
+## 🎯Skills Demonstrated
 
-1. Clone this repository
-2. Open `index.html` in a web browser
-3. Open the browser console (F12 or right-click → Inspect → Console)
-4. Follow the prompts to play the game
+- Modern JavaScript (ES6+)
+- Simple DOM manipulation
+- Canvas animations
+- CSS animations and transitions
+- Audio integration
+- Event handling
+- Game state management
+- Responsive design
 
-## Future Improvements
+## 🎮 How to Play
 
-- Add a graphical user interface with buttons
-- Implement better input validation
-- Add game history tracking
-- Add the ability to play again without refreshing
+1. Open the game in a web browser
+2. Click "Start Game" after the intro text finishes typing
+3. Select Rock, Paper, or Scissors by clicking the buttons
+4. First to 5 points wins!
+5. Click "Play Again" to restart the game
+
+## 🚀 Future Improvements
+
+- <input disabled="" type="checkbox"> Add leaderboard with localStorage
+- <input disabled="" type="checkbox"> Implement Rock-Paper-Scissors-Lizard-Spock mode
+- <input disabled="" type="checkbox"> Add difficulty levels with smarter computer AI
+- <input disabled="" type="checkbox"> Include customizable themes
+- <input disabled="" type="checkbox"> Add support for multiplayer
