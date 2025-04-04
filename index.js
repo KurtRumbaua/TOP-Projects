@@ -32,11 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const confettiCanvas = document.querySelector("#confetti-canvas");
 
   // Add hover sound effect
-  const hoverSound = new Audio("../sounds/hover.mp3");
+  const hoverSound = new Audio("sounds/hover.mp3");
   hoverSound.volume = 0.3; // Lower volume so it's not too intrusive
 
   // Add click sound effect 
-  const clickSound = new Audio("../sounds/click.mp3"); // Changed from mp4 to mp3
+  const clickSound = new Audio("sounds/click.mp3"); // Changed from mp4 to mp3
   clickSound.volume = 0.5;
 
   // Don't try to preload sounds
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add this function to play win/lose sounds
   function playSound(isWin) {
     // Create a new Audio object each time to avoid conflicts
-    const audio = new Audio(isWin ? "../sounds/win.mp3" : "../sounds/lose.mp3");
+    const audio = new Audio(isWin ? "sounds/win.mp3" : "sounds/lose.mp3");
     
     // Set maximum volume
     audio.volume = 1.0;
