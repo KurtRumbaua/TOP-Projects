@@ -5,7 +5,7 @@ A simple, interactive implementation of the classic Rock-Paper-Scissors game bui
 
 ## 🎮 Project Overview
 
-This project is part of [The Odin Project](https://www.theodinproject.com/) curriculum, which provides a free, open-source full-stack web development course. This implementation focuses on core JavaScript concepts and logic without any fancy UI (yet).
+This project is part of [The Odin Project](https://www.theodinproject.com/) curriculum, which provides a free, open-source full-stack web development course. This implementation focuses on core JavaScript concepts and logic with simple UI.
 
 ## 🎲 How It Works
 
