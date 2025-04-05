@@ -3,9 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-A-Sketch</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <p>Test</p>
+    <div id="container">
+        <input type="number" id="grid-size" min="1" max="100" value="16" placeholder="Grid size (1-100 only)">
+        <button id="update-grid">Apply</button>
+        <div id="grid-container"></div>
+    </div>
+
+    <div id="drawing-mode-container">
+        <button class="drawing-mode-btn" id="blackBtn">Black</button>
+        <button class="drawing-mode-btn" id="darkenBtn">Darken</button>
+        <button class="drawing-mode-btn" id="rainbowBtn">Rainbow</button>
+    </div>
 </body>
 </html>

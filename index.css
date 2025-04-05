@@ -1,0 +1,102 @@
+:root {
+    --grid-container-size: 480px;
+    --grid-size: 16;
+    --grid-color: rgb(245, 245, 245);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;  
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+button {
+    background-color: #4361ee;
+    font-family: 'Inter', system-ui, sans-serif;
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3a56d4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#update-grid{
+    margin-bottom: 8px;
+}
+
+#grid-size {
+    padding: 0.6rem 0.8rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    width: 120px;
+    margin-bottom: 10px;
+    color: #333;
+    background-color: #fff;
+}
+
+#grid-size:focus {
+    outline: none;
+    border-color: #4361ee;
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+}
+
+#grid-size::-webkit-inner-spin-button,
+#grid-size::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--grid-container-size);
+    height: var(--grid-container-size);
+    border: 1px solid black;
+}
+
+#drawing-mode-container{
+    gap: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.grid-cell {
+    width: calc(var(--grid-container-size) / var(--grid-size));
+    height: calc(var(--grid-container-size) / var(--grid-size));
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.grid-cell-colored-bg {
+    background-color: var(--grid-color);
+}
