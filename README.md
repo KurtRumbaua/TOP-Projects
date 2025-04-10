@@ -3,6 +3,10 @@
 
 A simple, interactive implementation of the classic Rock-Paper-Scissors game built with JavaScript, HTML, and CSS.
 
+## Disclaimer
+
+Some parts of the code, particularly the CSS animations, were generated using AI. However, the majority of the project—including the game logic, layout structure, and CSS styling—was personally coded by me.
+
 ## 🎮 Project Overview
 
 This project is part of [The Odin Project](https://www.theodinproject.com/) curriculum, which provides a free, open-source full-stack web development course. This implementation focuses on core JavaScript concepts and logic with simple UI.
