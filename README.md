@@ -3,7 +3,7 @@
 
 A simple, interactive implementation of the classic Rock-Paper-Scissors game built with JavaScript, HTML, and CSS.
 
-## Disclaimer
+# Disclaimer
 
 Some parts of the code, particularly the CSS animations, were generated using AI. However, the majority of the project—including the game logic, layout structure, and CSS styling—was personally coded by me.
 
