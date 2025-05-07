@@ -14,8 +14,23 @@ function safeEval(expression) {
 
 keys.addEventListener('click', (event) => {
     if(event.target.tagName === 'BUTTON'){
-        buttonText = event.target.textContent;
-        if(display.value === '0'){
+        const buttonText = event.target.textContent;
+
+        if(buttonText === "C"){
+            display.value = '0';
+            return;
+        }
+
+        if(buttonText === "="){
+            try {
+                display.value = safeEval(display.value);
+            } catch {
+                display.value = "0"
+            }
+            return;
+        }
+
+        if(display.value === '0' ){
             display.value = '';
         }
 
@@ -34,13 +49,6 @@ keys.addEventListener('click', (event) => {
         }
         
         display.value += buttonText;
-            switch(buttonText){
-            case "C":
-                display.value = '0';
-                return;
-            case "=":
-                display.value = safeEval(display.value);
-        }
     }
 })
 
