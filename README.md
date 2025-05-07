@@ -61,7 +61,3 @@ Visit the live calculator: [Web-based Calculator](https://your-live-demo-link.co
 
 - Created by Kurt Rumbaua
 - Project requirements from [The Odin Project](https://www.theodinproject.com/)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
