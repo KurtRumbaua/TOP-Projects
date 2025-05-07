@@ -18,6 +18,21 @@ keys.addEventListener('click', (event) => {
         if(display.value === '0'){
             display.value = '';
         }
+
+        if(['+', '-', '*', '/'].includes(buttonText)){
+            const lastChar = display.value.slice(-1);
+            
+            if (buttonText === '-' && ['+', '*', '/'].includes(lastChar)) {
+                display.value += buttonText;
+                return;
+            }
+            
+            if(['+', '-', '*', '/'].includes(lastChar)){
+                display.value = display.value.slice(0, -1) + buttonText;
+                return;
+            }
+        }
+        
         display.value += buttonText;
             switch(buttonText){
             case "C":
