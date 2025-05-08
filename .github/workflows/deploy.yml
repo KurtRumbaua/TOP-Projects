@@ -1,0 +1,59 @@
+name: Deploy Projects to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  deploy-all-projects:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      # Project 1: Recipes
+      - name: Deploy Recipes
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "Project-1-Recipes"
+          target-path: "/Project-1-Recipes"
+
+      # Project 2: Landing Page
+      - name: Deploy Landing Page
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "Project-2-Landing-Page"
+          target-path: "/Project-2-Landing-Page"
+
+      # Project 3: Rock-Paper-Scissors
+      - name: Deploy Rock-Paper-Scissors
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "Project-3-Rock-Paper-Scissors"
+          target-path: "/Project-3-Rock-Paper-Scissors"
+
+      # Project 4: Etch-a-Sketch
+      - name: Deploy Etch-a-Sketch
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "Project-4-Etch-a-Sketch"
+          target-path: "/Project-4-Etch-a-Sketch"
+
+      # Project 5: Calculator
+      - name: Deploy Calculator
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: "Project-5-Calculator"
+          target-path: "/Project-5-Calculator"
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v3
